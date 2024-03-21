@@ -1,6 +1,7 @@
 import z from "zod";
 
-export const StatusEnum = z.enum(['active', 'inactive']);
+//export const StatusEnum = z.enum(['active', 'inactive']);
+//export const StatusEnum = z.enum(['active']);
 
 export const dateZodSchema = {
  createdAt: z.coerce.date().optional().nullable(),
@@ -12,7 +13,7 @@ export const userZobObject = z.object({
     name: z.string().min(1),
     email: z.string().email().min(1),
     password: z.string().min(1),
-    status: StatusEnum.default('active').nullable().optional(),
+    status: z.string().default('active').nullable().optional(),
     ...dateZodSchema
 }).strict();
 

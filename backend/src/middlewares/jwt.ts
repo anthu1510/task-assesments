@@ -35,8 +35,6 @@ export const authenticateJWT: RequestHandler = (
       if (err) {
         return res.status(403).json({ error: 'Forbidden' });
       }
-  
-      req.user = user as UserTypes.IJwtPayload;
       return next();
     });
   };
